@@ -54,6 +54,12 @@ describe("Trie", function() {
     });
 
     describe(".getWords", function(){
+      it("returns multiple children on different branches", function(){
+        t.learn("begin");
+        t.learn("best");
+        expect(t.getWords()
+          ).toEqual(["begin", "best"]);
+      });
       it("gets a child word", function(){
         t.learn("beast");
         expect(t.getWords()).toEqual(["beast"]);
